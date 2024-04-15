@@ -1,21 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate"/>
+    <meta http-equiv="pragma" content="no-cache"/>
+    <meta http-equiv="expires" content="0"/>
+
     {% block head %}
         <title>{% block title %}{% endblock %} - Secrets</title>
     {% endblock %}
+
+    {% block styles %} {% endblock %}
 </head>
+
 <body>
+<header>
+    {% block header %}
+        <nav class="tabs">
+            <ul>
+                {% block tabs %}{% endblock %}
+            </ul>
+        </nav>
+        <div class="header-container">
+            <a href="/">
+                <img src="../static/pictures/logo.png" alt="Secrets Logo" class="logo">
+            </a>
+        </div>
+    {% endblock %}
+</header>
 
 <main>
     <div class="content">{% block content %}{% endblock %}</div>
 </main>
+
 <footer>
     {% block footer %}
         <p>&copy; 2024 Secrets. All rights reserved.</p>
     {% endblock %}
 </footer>
 </body>
+
 </html>

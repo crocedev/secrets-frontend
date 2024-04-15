@@ -1,0 +1,60 @@
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2b2e34; /* Цвет заголовка */
+    box-sizing: border-box;
+    width: 100%;
+    height: 64px; /* Высота заголовка */
+    padding: 0 32px;
+}
+
+.header-container a {
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+}
+
+header img {
+    width: 40px; /* Размер логотипа */
+    transition: transform 0.3s ease; /* Анимация при наведении */
+    border: 2px solid #0088cc; /* Синяя обводка */
+    border-radius: 50%; /* Закругленные углы для круглого логотипа */
+}
+
+header img:hover {
+    transform: scale(1.1); /* Увеличение логотипа при наведении */
+}
+
+
+.tabs ul {
+    display: flex;
+    justify-content: left; /* Выравниваем элементы по горизонтали */
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    background-color: #2b2e34; /* Цвет фона вкладок */
+    border-radius: 10px; /* Закругляем углы */
+}
+
+.tabs li {
+    margin-right: 10px; /* Уменьшаем отступ между вкладками */
+}
+
+.tabs li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px 20px; /* Увеличиваем отступы */
+    border-radius: 10px; /* Закругляем углы */
+    transition: background-color 0.3s ease;
+}
+
+.tabs li a:hover {
+    background-color: #0088cc; /* Изменение цвета вкладки при наведении */
+}
+
+.tabs li.current a {
+    background-color: #0088cc; /* Цвет активной вкладки */
+}

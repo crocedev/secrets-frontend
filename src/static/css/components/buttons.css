@@ -1,0 +1,17 @@
+.btn {
+    background-color: #0088cc; /* Цвет кнопки */
+    color: #ffffff;
+    border: none;
+    padding: 15px 40px; /* Увеличиваем внутренние отступы */
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px; /* Добавляем скругление углов */
+    display: block; /* Размещаем кнопку в одной строке с полями */
+    width: 100%; /* Растягиваем кнопку на всю ширину контейнера */
+    box-sizing: border-box; /* Учитываем внешние границы и отступы в ширине */
+    text-decoration: none !important; /* Убираем подчеркивание ссылки */
+}
+
+.btn:hover {
+    background-color: #006699; /* Изменение цвета кнопки при наведении */
+}
