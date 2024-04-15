@@ -1,0 +1,22 @@
+@import url('base.css');
+
+.form-content {
+    box-sizing: border-box;
+    margin: 0 auto; /* Центрируем контейнер по горизонтали */
+    max-width: 400px;
+}
+
+.input-field {
+    width: 100%; /* Занимает всю доступную ширину контейнера */
+    max-width: 100%; /* Устанавливаем максимальную ширину поля */
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Учитываем внешние границы и отступы в ширине */
+    display: block; /* Убираем инлайновость */
+    margin: 10px auto; /* Центрируем поле ввода по горизонтали */
+}
+
+main img {
+    margin-bottom: 0; /* Добавляем отступ снизу */
+}

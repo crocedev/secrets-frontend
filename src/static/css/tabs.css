@@ -1,0 +1,49 @@
+@import url('base.css');
+
+/* Общие стили для вкладок в хэдере */
+header {
+    display: flex;
+    align-items: center; /* Выравниваем элементы по вертикали */
+}
+
+.tabs ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    background-color: #2b2e34; /* Цвет фона вкладок */
+    border-radius: 10px; /* Закругляем углы */
+}
+
+.tabs li {
+    margin-right: 10px; /* Уменьшаем отступ между вкладками */
+}
+
+.tabs li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px 20px; /* Увеличиваем отступы */
+    border-radius: 10px; /* Закругляем углы */
+    transition: background-color 0.3s ease;
+}
+
+.tabs li a:hover {
+    background-color: #0088cc; /* Изменение цвета вкладки при наведении */
+}
+.tabs li.current a {
+    background-color: #0088cc; /* Цвет активной вкладки */
+}
+
+header img {
+    width: 42px; /* Размер логотипа */
+    margin-right: 32px; /* Отступ справа для разделения от вкладок */
+    margin-left: 32px;
+    transition: transform 0.3s ease; /* Анимация при наведении */
+    border: 2px solid #0088cc; /* Синяя обводка */
+    border-radius: 50%; /* Закругленные углы для круглого логотипа */
+}
+
+header img:hover {
+    transform: scale(1.1); /* Увеличение логотипа при наведении */
+}

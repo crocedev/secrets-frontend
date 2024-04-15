@@ -1,0 +1,7 @@
+@import url('base.css');
+
+.form-content {
+    box-sizing: border-box;
+    margin: 0 auto; /* Центрируем контейнер по горизонтали */
+    max-width: 400px;
+}
