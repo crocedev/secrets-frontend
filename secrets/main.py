@@ -5,9 +5,9 @@ from fastapi import FastAPI, HTTPException
 from starlette.responses import JSONResponse
 from starlette.staticfiles import StaticFiles
 
-from src.pages import routers
+from secrets.pages import routers
 
-app = FastAPI(title="Secrets Frontend")
+app = FastAPI(title="Secrets")
 
 static_folder = pathlib.Path(__file__).parent.joinpath("static")
 app.mount(

@@ -1,11 +1,9 @@
-SOURCE_PATH = src
-APP = src.main:app
-API_HOST = localhost
-API_PORT = 3000
+APP_NAME=secrets
+TESTS_PATH=tests
 
 PHONY: run-dev
 run-dev:
-	uvicorn $(APP) --host $(API_HOST) --port $(API_PORT) --reload
+	uvicorn $(APP_NAME).main:app --host localhost --port 3000 --reload
 
 PHONY: run-prod
 run-prod:
@@ -13,12 +11,12 @@ run-prod:
 
 PHONY: lint
 lint:
-	ruff --fix $(SOURCE_PATH)
-	mypy $(SOURCE_PATH)
+	ruff --fix $(APP_NAME) $(TESTS_PATH)
+	mypy --install-imports $(APP_NAME) $(TESTS_PATH)
 
 PHONY: format
 format:
-	black $(SOURCE_PATH)
+	ruff format $(APP_NAME) $(TESTS_PATH)
 
 PHONY: freeze
 freeze:

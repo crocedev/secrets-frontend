@@ -1,6 +1,0 @@
-@import url('main.css');
-@import url('components/inputs.css');
-
-main img {
-    margin-bottom: 0; /* Добавляем отступ снизу */
-}

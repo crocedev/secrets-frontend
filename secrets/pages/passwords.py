@@ -2,9 +2,9 @@ from fastapi import APIRouter
 from starlette.requests import Request
 from starlette.responses import HTMLResponse
 
-from src.templating import templates
+from secrets.templating import templates
 
-router = APIRouter(tags=["passwords"])
+router = APIRouter(tags=["Passwords"])
 
 
 @router.get("/passwords")

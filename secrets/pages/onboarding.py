@@ -1,13 +1,13 @@
 from fastapi import APIRouter, Request
 from starlette.responses import HTMLResponse
 
-from src.templating import templates
+from secrets.templating import templates
 
 router = APIRouter(tags=["Onboarding"])
 
 
 @router.get("/")
-async def landing(request: Request) -> HTMLResponse:
+async def main(request: Request) -> HTMLResponse:
     return templates.TemplateResponse("main.html", {"request": request})
 
 
