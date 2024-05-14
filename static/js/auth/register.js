@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     } else if (response.status === 422) {
                         return response.json();
                     } else {
-                        // Handle other errors
                         throw new Error('An error occurred.');
                     }
                 })
@@ -40,6 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
                         alert('A user with this email already exists.');
                     } else if (data && data.detail.code === 'REGISTER_INVALID_PASSWORD') {
                         alert('Password validation failed: ' + data.detail.reason);
+                    } else if (data && data.detail) {
+                        alert('Weak password.');
                     } else {
                         alert('An error occurred during validation.');
                     }

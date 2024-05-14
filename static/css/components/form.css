@@ -1,0 +1,9 @@
+.field-container, .button-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    gap: 8px;
+    justify-content: space-between;
+}

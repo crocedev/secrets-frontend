@@ -51,7 +51,7 @@
         </div>
         <div class="button-container">
             <button class="btn" type="submit" onclick="window.location.assign('/passwords')">Back</button>
-            <button class="btn icon-btn" id="edit" onclick="return editPassword('{{ password.id }}')"><span
+            <button class="btn icon-btn" id="edit" onclick="window.location.assign('/passwords/{{ password.id }}/edit')"><span
                     class="material-icons md-20">edit</span></button>
             <button class="btn icon-btn danger-btn" id="delete"
                     onclick="return deletePassword('{{ password.id }}')"><span
