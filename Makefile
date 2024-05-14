@@ -9,10 +9,14 @@ PHONY: run-prod
 run-prod:
 	docker-compose -f docker-compose.yml -f docker-compose-prod.yml up --build
 
+PHONY: kill
+kill:
+	TASKKILL /F /IM python.exe
+
 PHONY: lint
 lint:
 	ruff --fix $(APP_NAME) $(TESTS_PATH)
-	mypy --install-imports $(APP_NAME) $(TESTS_PATH)
+	mypy $(APP_NAME) $(TESTS_PATH) --strict
 
 PHONY: format
 format:

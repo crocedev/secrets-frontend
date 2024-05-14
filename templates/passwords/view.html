@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block title %}{{ password.title }}{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="/static/css/passwords/view.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+{% endblock %}
+
+{% block scripts %}
+    <script src="/static/js/passwords/view.js"></script>
+{% endblock %}
+
+{% block tabs %}
+    <li class="current"><a href="/passwords">Passwords</a></li>
+    <li><a href="/me">Account</a></li>
+{% endblock %}
+{% block content %}
+
+    <label for="username"></label>
+    <label for="password"></label>
+    <label for="url"></label>
+    <label for="note"></label>
+
+    <div class="password-details">
+        <h2>{{ password.title }}</h2>
+        <div class="fields">
+            <div class="field-container">
+                <input type="text" class="input-field" id="username"
+                       value="{{ password.username }}"
+                       placeholder="Username"
+                       readonly>
+            </div>
+            <div class="field-container">
+                <input type="password" class="input-field" id="password"
+                       value="{{ password.password }}"
+                       placeholder="Password" readonly>
+                <span class="toggle-visibility material-icons md-20"
+                      onclick="togglePasswordVisibility()">visibility</span>
+                <span class="copy material-icons md-20" onclick="copyPasswordToClipboard()">content_copy</span>
+            </div>
+            <div class="field-container">
+                <input type="text" class="input-field" id="url" value="{{ password.url }}"
+                       placeholder="URL" readonly>
+            </div>
+            <div class="field-container">
+                <input type="text" class="input-field" id="note" value="{{ password.note }}"
+                       placeholder="Note"
+                       readonly>
+            </div>
+            <p id="updated_at" title="Updated at {{ password.updated_at }}">{{ password.updated_at_human }}</p>
+        </div>
+        <div class="button-container">
+            <button class="btn" type="submit" onclick="window.location.assign('/passwords')">Back</button>
+            <button class="btn icon-btn" id="edit" onclick="return editPassword('{{ password.id }}')"><span
+                    class="material-icons md-20">edit</span></button>
+            <button class="btn icon-btn danger-btn" id="delete"
+                    onclick="return deletePassword('{{ password.id }}')"><span
+                    class="material-icons md-20">delete</span>
+            </button>
+        </div>
+    </div>
+{% endblock %}

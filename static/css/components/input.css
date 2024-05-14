@@ -1,0 +1,11 @@
+.input-field {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid var(--input-border-color);
+    box-sizing: border-box;
+}
+
+label {
+    width: 100%;
+}

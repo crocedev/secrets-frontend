@@ -7,20 +7,20 @@ router = APIRouter(tags=["Onboarding"])
 
 
 @router.get("/")
-async def main(request: Request) -> HTMLResponse:
+def main(request: Request) -> HTMLResponse:
     return templates.TemplateResponse("main.html", {"request": request})
 
 
 @router.get("/register")
-async def register(request: Request) -> HTMLResponse:
-    return templates.TemplateResponse("register.html", {"request": request})
+def register(request: Request) -> HTMLResponse:
+    return templates.TemplateResponse("auth/register.html", {"request": request})
 
 
 @router.get("/login")
-async def login(request: Request) -> HTMLResponse:
-    return templates.TemplateResponse("login.html", {"request": request})
+def login(request: Request) -> HTMLResponse:
+    return templates.TemplateResponse("auth/login.html", {"request": request})
 
 
 @router.get("/2fa")
-async def login_2fa(request: Request) -> HTMLResponse:
-    return templates.TemplateResponse("2fa.html", {"request": request})
+def login_2fa(request: Request) -> HTMLResponse:
+    return templates.TemplateResponse("auth/2fa.html", {"request": request})

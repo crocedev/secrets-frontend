@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block title %}{{ password.title }}{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="/static/css/passwords/view.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+{% endblock %}
+
+{% block scripts %}
+    <script src="/static/js/passwords/view.js"></script>
+    <script src="/static/js/passwords/edit.js"></script>
+{% endblock %}
+
+{% block tabs %}
+    <li class="current"><a href="/passwords">Passwords</a></li>
+    <li><a href="/me">Account</a></li>
+{% endblock %}
+{% block content %}
+
+    <label for="title"></label>
+    <label for="username"></label>
+    <label for="password"></label>
+    <label for="url"></label>
+    <label for="note"></label>
+
+    <form id="editForm" class="password-details" action="">
+        <h2>Edit a password</h2>
+        <div class="fields">
+            <div class="field-container">
+                <input type="text" class="input-field" id="title"
+                       value="{{ password.title }}"
+                       placeholder="Title">
+            </div>
+            <div class="field-container">
+                <input type="text" class="input-field" id="username"
+                       value="{{ password.username }}"
+                       placeholder="Username">
+            </div>
+            <div class="field-container">
+                <input type="password" class="input-field" id="password"
+                       value="{{ password.password }}"
+                       placeholder="Password">
+                <span class="toggle-visibility material-icons md-20"
+                      onclick="togglePasswordVisibility()">visibility</span>
+                <span class="copy material-icons md-20" onclick="copyPasswordToClipboard()">content_copy</span>
+            </div>
+            <div class="field-container">
+                <input type="text" class="input-field" id="url" value="{{ password.url }}"
+                       placeholder="URL">
+            </div>
+            <div class="field-container">
+                <input type="text" class="input-field" id="note" value="{{ password.note }}"
+                       placeholder="Note">
+            </div>
+            <p id="updated_at" title="Updated at {{ password.updated_at }}">{{ password.updated_at_human }}</p>
+        </div>
+        <div class="button-container">
+            <button class="btn" id="save" type="submit" onclick="return savePassword('{{ password.id }}')">Save</button>
+            <button class="btn icon-btn" id="back_to_password" onclick="return backToPassword('{{ password.id }}')"><span
+                    class="material-icons md-20">arrow_back</span></button>
+            <button class="btn icon-btn danger-btn" id="delete" onclick="return deletePassword('{{ password.id }}')"><span
+                    class="material-icons md-20">delete</span>
+            </button>
+        </div>
+    </form>
+{% endblock %}

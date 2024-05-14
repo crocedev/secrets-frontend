@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     tg.MainButton.disable();
     tg.MainButton.show();
 
-    let passwordInput = document.getElementById("password");
+    let passwordInput = document.getElementById("passwords");
 
     passwordInput.addEventListener("input", function (e) {
         e.preventDefault();

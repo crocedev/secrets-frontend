@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block head %}
+    <link rel="stylesheet" href="/static/css/onboarding.css">
+    <title>Secrets</title>
+{% endblock %}
+
+{% block tabs %}
+    <li class="current"><a href="/">Onboarding</a></li>
+    <li><a href="/login">Login</a></li>
+    <li><a href="/about">About</a></li>
+{% endblock %}
+
+{% block content %}
+    <div class="form-content">
+        <img src="/static/pictures/logo.png" alt="Secrets Logo">
+        <h2>Welcome to Secrets</h2>
+        <p>Store and manage your passwords securely.</p>
+        <a href="/register" class="btn">Get Started</a>
+    </div>
+{% endblock %}

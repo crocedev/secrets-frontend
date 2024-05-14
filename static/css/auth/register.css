@@ -1,0 +1,9 @@
+@import url('../onboarding.css');
+@import url('../components/input.css');
+
+
+#registerForm {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}

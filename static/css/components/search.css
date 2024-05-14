@@ -1,0 +1,9 @@
+@import url('input.css');
+
+.search-container {
+    display: flex;
+    margin: auto;
+    width: 100%;
+    max-width: 800px;
+    gap: 8px;
+}
