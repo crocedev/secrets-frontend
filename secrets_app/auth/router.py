@@ -11,7 +11,7 @@ from secrets_app.templating import templates
 router = APIRouter(tags=["Auth"])
 
 
-@router.get("/")
+@router.get("/", dependencies=[Depends(redirect_authenticated)])
 def onboarding(request: Request) -> HTMLResponse:
     return templates.TemplateResponse("auth/onboarding.html", {"request": request})
 

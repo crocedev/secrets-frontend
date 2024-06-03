@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const password = document.getElementById('password').value;
 
         const xhr = new XMLHttpRequest();
-        xhr.open('POST', 'http://localhost:8000/auth/login', true);
+        xhr.open('POST', 'http://localhost:8000/api/v1/auth/login', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.withCredentials = true;  // Send cookies
 

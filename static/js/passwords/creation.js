@@ -7,7 +7,7 @@ function createPassword() {
         'note': document.getElementById('note').value
     };
     console.log(JSON.stringify(data));
-    fetch(`http://localhost:8000/passwords`, {
+    fetch(`http://localhost:8000/api/v1/passwords`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

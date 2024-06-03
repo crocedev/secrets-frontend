@@ -7,7 +7,7 @@ function savePassword(passwordId) {
         note: document.getElementById('note').value
     };
 
-    fetch(`http://localhost:8000/passwords/${passwordId}`, {
+    fetch(`http://localhost:8000/api/v1/passwords/${passwordId}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'
@@ -17,7 +17,6 @@ function savePassword(passwordId) {
     })
         .then(response => {
             if (response.ok) {
-                alert('Password updated successfully.');
                 window.location.assign('/passwords');
             } else if (response.status === 404) {
                 alert('The requested password was not found.');

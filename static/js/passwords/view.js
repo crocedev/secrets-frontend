@@ -1,9 +1,6 @@
 function copyPasswordToClipboard() {
     const passwordField = document.getElementById('password');
     navigator.clipboard.writeText(passwordField.value)
-        .then(() => {
-            alert('Password copied to clipboard.');
-        })
         .catch((error) => {
             console.error('Failed to copy password: ', error);
             alert('Failed to copy password. Please try again.');
@@ -14,7 +11,7 @@ function deletePassword(passwordId) {
     const confirmation = confirm('Are you sure you want to delete this password?');
 
     if (confirmation) {
-        fetch(`http://localhost:8000/passwords/${passwordId}`, {
+        fetch(`http://localhost:8000/api/v1/passwords/${passwordId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
