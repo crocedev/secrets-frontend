@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ password.title }}{% endblock %}
+{% block title %}Add password{% endblock %}
 {% block styles %}
     <link rel="stylesheet" href="/static/css/passwords/view.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -8,6 +8,7 @@
 
 {% block scripts %}
     <script src="/static/js/passwords/view.js"></script>
+    <script src="/static/js/passwords/creation.js"></script>
 {% endblock %}
 
 {% block tabs %}
@@ -17,52 +18,46 @@
 {% endblock %}
 {% block content %}
 
+    <label for="title"></label>
     <label for="username"></label>
     <label for="password"></label>
     <label for="url"></label>
     <label for="note"></label>
 
-    <form id="viewForm" class="form">
+    <form id="editForm" class="form" action="">
         <div class="form-head">
             <img src="/static/pictures/logo.png" alt="Secrets Logo" class="logo">
-            <div class="password-title-date">
-                <h2>{{ password.title }}</h2>
-                <p id="updated_at" title="Updated at {{ password.updated_at }}">{{ password.updated_at_human }}</p>
-            </div>
+            <h2>Add a password</h2>
         </div>
         <div class="form-fields">
             <div class="form-field">
+                <input type="text" class="input-field" id="title"
+                       placeholder="Title" required>
+            </div>
+            <div class="form-field">
                 <input type="text" class="input-field" id="username"
-                       value="{{ password.username }}"
-                       placeholder="Username"
-                       readonly>
+                       placeholder="Username" required>
             </div>
             <div class="form-field">
                 <input type="password" class="input-field" id="password"
-                       value="{{ password.password }}"
-                       placeholder="Password" readonly>
+                       placeholder="Password" required>
                 <span class="toggle-visibility material-icons md-20"
                       onclick="togglePasswordVisibility()">visibility</span>
                 <span class="copy material-icons md-20" onclick="copyPasswordToClipboard()">content_copy</span>
             </div>
             <div class="form-field">
-                <input type="text" class="input-field" id="url" value="{{ password.url }}"
-                       placeholder="URL" readonly>
+                <input type="text" class="input-field" id="url"
+                       placeholder="URL">
             </div>
             <div class="form-field">
-                <input type="text" class="input-field" id="note" value="{{ password.note }}"
-                       placeholder="Note"
-                       readonly>
+                <input type="text" class="input-field" id="note"
+                       placeholder="Note">
             </div>
         </div>
         <div class="form-actions">
-            <button class="btn" formaction="/passwords">Back</button>
-            <button class="btn icon-btn" id="edit" formaction='/passwords/{{ password.id }}/edit'><span
-                    class="material-icons md-20">edit</span></button>
-            <button class="btn icon-btn danger-btn" id="delete"
-                    onclick="return deletePassword('{{ password.id }}')"><span
-                    class="material-icons md-20">delete</span>
-            </button>
+            <button class="btn" id="create" type="submit" onclick="return createPassword()">Add</button>
+            <button class="btn icon-btn" id="back" formaction="/passwords"><span
+                    class="material-icons md-20">arrow_back</span></button>
         </div>
     </form>
 {% endblock %}

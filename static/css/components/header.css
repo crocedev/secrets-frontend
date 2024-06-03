@@ -21,11 +21,6 @@ header {
 
 .logo-container img {
     width: 36px;
-    transition: transform 0.3s ease;
     border: 2px solid var(--header-border-color);
     border-radius: 50%;
-}
-
-.logo-container img:hover {
-    transform: scale(1.12)
 }

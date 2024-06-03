@@ -34,6 +34,7 @@
     --footer-bg-color: var(--base-color-80);
     --footer-color: var(--base-color-10);
 
+    --link-color: var(--header-border-color);
     --label-color: var(--base-color-0);
     --label-secondary-color: var(--base-color-10);
 

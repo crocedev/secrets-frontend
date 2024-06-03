@@ -1,7 +1,1 @@
-@import url('register.css');
-
-#loginForm {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
+@import url('registration.css');

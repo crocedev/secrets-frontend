@@ -1,35 +1,21 @@
 @import url('../base.css');
-@import url('../components/input.css');
-@import url('../components/button.css');
 @import url('../components/form.css');
 
-.password-details {
+
+.password-title-date {
     display: flex;
     flex-direction: column;
-    background-color: var(--form-bg-color);
-    border-radius: 10px;
-    max-width: 400px;
-    width: 100%;
-    margin: auto;
-    padding: 16px;
-    gap: 8px;
+    gap: 2px;
+    padding: 8px;
 }
 
-.fields {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.toggle-visibility, .copy {
-    cursor: pointer;
-}
-
-.btn {
-    height: 44px;
+.password-title-date h2 {
+    margin: 0;
 }
 
 #updated_at {
-    text-align: right;
+    text-align: center;
     margin: 0;
+    font-size: 14px;
 }
+

@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "secrets_app"
+version = "0.1.0"
+description = ""
+authors = ["Ivan Stasevich <pravitel2015ify@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.111.0"
+aiohttp = "^3.9.5"
+humanize = "^4.9.0"
+gunicorn = "^22.0.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

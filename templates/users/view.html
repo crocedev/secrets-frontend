@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}{{ user.first_name }}{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="/static/css/users/view.css">
+{% endblock %}
+
+{% block tabs %}
+    <li><a href="/passwords">Passwords</a></li>
+    <li class="current"><a href="/me">Settings</a></li>
+    <li><a href="/logout">Logout</a></li>
+{% endblock %}
+
+{% block content %}
+    <label for="first_name"></label>
+    <label for="last_name"></label>
+    <label for="email"></label>
+
+    <form id="viewForm" class="form">
+        <div class="form-head">
+            <img src="/static/pictures/logo.png" alt="Secrets Logo" class="logo">
+            <h2>My account</h2>
+        </div>
+        <div class="form-fields">
+            <div class="form-field">
+                <input type="text" class="input-field" id="first_name"
+                       value="{{ user.first_name }}"
+                       placeholder="First Name" readonly>
+            </div>
+            <div class="form-field">
+                <input type="text" class="input-field" id="last_name"
+                       value="{{ user.last_name if user.last_name else '' }}"
+                       placeholder="Last Name" readonly>
+            </div>
+            <div class="form-field">
+                <input type="email" class="input-field" id="email"
+                       value="{{ user.email }}"
+                       placeholder="Email" readonly>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button class="btn" id="save" onclick="">Enable 2FA</button>
+            <button class="btn icon-btn" id="back" formaction="/passwords"><span
+                    class="material-icons md-20">arrow_back</span></button>
+        </div>
+    </form>
+{% endblock %}

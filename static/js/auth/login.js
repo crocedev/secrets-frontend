@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             } else if (xhr.status === 422) {
                 alert('Validation error.');
+            } else {
+                console.log(xhr.status, xhr.responseText)
             }
         };
     });

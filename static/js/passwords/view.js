@@ -23,7 +23,6 @@ function deletePassword(passwordId) {
         })
             .then(response => {
                 if (response.ok) {
-                    alert('Password deleted successfully.');
                     window.location.assign('/passwords');
                 } else if (response.status === 404) {
                     alert('The requested password was not found.');
@@ -39,14 +38,5 @@ function deletePassword(passwordId) {
             });
     }
 
-    return false;
-}
-
-function editPassword(passwordId) {
-    window.location.assign(`/passwords/${passwordId}/edit`);
-}
-
-function backToPage() {
-    window.location.assign(`/passwords`);
     return false;
 }

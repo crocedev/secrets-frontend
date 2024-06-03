@@ -1,4 +1,4 @@
-APP_NAME=secrets
+APP_NAME=secrets_app
 TESTS_PATH=tests
 
 PHONY: run-dev
@@ -7,7 +7,7 @@ run-dev:
 
 PHONY: run-prod
 run-prod:
-	docker-compose -f docker-compose.yml -f docker-compose-prod.yml up --build
+	docker-compose up -d --build
 
 PHONY: kill
 kill:

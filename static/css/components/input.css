@@ -9,3 +9,7 @@
 label {
     width: 100%;
 }
+
+.toggle-visibility, .copy {
+    cursor: pointer;
+}
