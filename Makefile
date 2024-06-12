@@ -1,12 +1,12 @@
-APP_NAME=secrets_app
+APP_NAME=app
 TESTS_PATH=tests
 
-PHONY: run-dev
-run-dev:
+PHONY: run
+run:
 	uvicorn $(APP_NAME).main:app --host localhost --port 3000 --reload
 
-PHONY: run-prod
-run-prod:
+PHONY: up
+up:
 	docker-compose up -d --build
 
 PHONY: kill
@@ -15,13 +15,9 @@ kill:
 
 PHONY: lint
 lint:
-	ruff --fix $(APP_NAME) $(TESTS_PATH)
+	ruff check --fix $(APP_NAME) $(TESTS_PATH)
 	mypy $(APP_NAME) $(TESTS_PATH) --strict
 
 PHONY: format
 format:
 	ruff format $(APP_NAME) $(TESTS_PATH)
-
-PHONY: freeze
-freeze:
-	pip freeze > requirements.txt

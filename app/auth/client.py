@@ -3,8 +3,8 @@ from typing import Any
 import aiohttp
 from starlette import status
 
-from secrets_app.auth.schemas import SUser
-from secrets_app.client import BackendClient
+from app.auth.schemas import SUser
+from app.client import BackendClient
 
 
 class AuthClient(BackendClient):

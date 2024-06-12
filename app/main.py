@@ -1,23 +1,21 @@
-import os
-import pathlib
-
 from fastapi import FastAPI
 from starlette.requests import Request
 from starlette.responses import RedirectResponse, Response
 from starlette.staticfiles import StaticFiles
 
-from secrets_app.auth.exceptions import RequiresLoginException, AlreadyLoggedInException
-from secrets_app.auth.router import router as auth_router
-from secrets_app.passwords.router import router as passwords_router
-from secrets_app.users.router import router as users_router
+from app.auth.exceptions import (
+    RequiresLoginException,
+    AlreadyLoggedInException,
+)
+from app.auth.router import router as auth_router
+from app.passwords.router import router as passwords_router
+from app.users.router import router as users_router
 
 routers = [auth_router, passwords_router, users_router]
 
 app = FastAPI(title="Secrets")
 
-app.mount(
-    "/static", StaticFiles(directory="static"), name="static"
-)
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 @app.exception_handler(RequiresLoginException)

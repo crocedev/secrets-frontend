@@ -1,6 +1,6 @@
 import datetime
 
-from secrets_app.schemas import SBase
+from app.schemas import SBase
 
 
 class SEnableTwoFactor(SBase):

@@ -1,4 +1,4 @@
-from secrets_app.exceptions import AppException
+from app.exceptions import AppException
 
 
 class RequiresLoginException(AppException):

@@ -5,8 +5,8 @@ services:
     build:
       context: .
       dockerfile: docker/fastapi.Dockerfile
-    environment:
-      - BACKEND_URL=http://host.docker.internal:8000/api/v1
+    env_file:
+      - .env
     ports:
       - "3000:8000"
     extra_hosts:

@@ -1,6 +1,6 @@
 import datetime
 
-from secrets_app.schemas import SBase, SPage
+from app.schemas import SBase, SPage
 
 
 class SPassword(SBase):

@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "secrets_app"
+name = "app"
 version = "0.1.0"
 description = ""
 authors = ["Ivan Stasevich <pravitel2015ify@gmail.com>"]
@@ -13,6 +13,34 @@ humanize = "^4.9.0"
 gunicorn = "^22.0.0"
 
 
+[tool.poetry.group.dev.dependencies]
+ruff = "^0.4.8"
+mypy = "^1.10.0"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.ruff]
+fix = true
+indent-width = 4
+line-length = 79
+src = ["src"]
+target-version = "py311"
+
+[tool.ruff.format]
+docstring-code-format = true
+
+
+[tool.mypy]
+strict = true
+pretty = true
+plugins = "pydantic.mypy"
+
+[[tool.mypy.overrides]]
+module = "*.*"
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

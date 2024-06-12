@@ -3,8 +3,8 @@ from urllib.parse import urlencode
 import aiohttp
 from starlette import status
 
-from secrets_app.client import BackendClient
-from secrets_app.passwords.schemas import SPassword, SPasswordPage
+from app.client import BackendClient
+from app.passwords.schemas import SPassword, SPasswordPage
 
 
 class PasswordClient(BackendClient):
@@ -22,7 +22,9 @@ class PasswordClient(BackendClient):
 
                 return response_schema
 
-    async def get_passwords(self, q: str = "", limit: int = 100) -> SPasswordPage:
+    async def get_passwords(
+        self, q: str = "", limit: int = 100
+    ) -> SPasswordPage:
         params = urlencode({"query": q, "limit": limit})
         url = f"{self.base_url}/passwords?{params}"
         async with aiohttp.ClientSession(cookies=self.cookies) as session:
