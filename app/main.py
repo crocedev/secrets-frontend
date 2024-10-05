@@ -13,7 +13,7 @@ from app.users.router import router as users_router
 
 routers = [auth_router, passwords_router, users_router]
 
-app = FastAPI(title="Secrets")
+app = FastAPI(title="AnySecrets Frontend")
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 

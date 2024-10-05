@@ -7,13 +7,12 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="/static/js/passwords/pagination.js"></script>
+    <script type="module" src="/static/js/passwords/pagination.js"></script>
 {% endblock %}
 
 {% block tabs %}
     <li class="current"><a href="/passwords">Passwords</a></li>
-    <li><a href="/me">Settings</a></li>
-    <li><a href="/logout">Logout</a></li>
+    <li><a href="/me">Account</a></li>
 {% endblock %}
 
 {% block content %}
@@ -32,13 +31,13 @@
         {% if passwords %}
             <caption><h2>Search Results</h2></caption>
             <thead>
-        <tr>
-            <th>Name</th>
-            <th>Username</th>
-            <th>URL</th>
-            <th></th>
-        </tr>
-        </thead>
+            <tr>
+                <th>Name</th>
+                <th>Username</th>
+                <th>URL</th>
+                <th></th>
+            </tr>
+            </thead>
         {% else %}
             <caption><h2>No results found</h2></caption>
         {% endif %}
@@ -46,7 +45,7 @@
         <tbody>
         {% for password in passwords %}
             <tr onclick="window.location='/passwords/{{ password.id }}'">
-                <td><b><a>{{ password.title }}</a></b></td>
+                <td><b><a>{{ password.name }}</a></b></td>
                 <td><b>{{ password.username }}</b></td>
                 <td><a href="{{ password.url }}" target="_blank">{{ password.url }}</a></td>
                 <td class="arrow"><i class="material-icons">arrow_forward</i></td>

@@ -1,43 +1,50 @@
-function createPassword() {
-    const data = {
-        'title': document.getElementById('title').value,
-        'username': document.getElementById('username').value,
-        'password': document.getElementById('password').value,
-        'url': document.getElementById('url').value,
-        'note': document.getElementById('note').value
-    };
-    console.log(JSON.stringify(data));
-    fetch(`http://localhost:8000/api/v1/passwords`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data),
-        credentials: 'include'
-    })
-        .then(response => {
-            if (response.ok) {
-                window.location.assign('/passwords');
-            } else if (response.status === 422) {
-                alert('Validation error.');
-            } else {
-                alert('Failed to create password.');
-            }
-        })
-        .catch(error => {
-            console.error(error);
-            alert('Failed to create password. Please try again.');
-        });
-    return false;
-}
+import {passwordClient} from './dependencies.js';
 
-function generatePassword() {
-    const length = 12; // Можно изменить на желаемую длину пароля
-    const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_+<>?";
-    let password = "";
-    for (let i = 0, n = charset.length; i < length; ++i) {
-        password += charset.charAt(Math.floor(Math.random() * n));
-    }
-    document.getElementById('password').value = password;
-    return false;
-}
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('createPasswordForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+        const data = {
+            name: document.getElementById('title').value,
+            username: document.getElementById('username').value,
+            password: document.getElementById('password').value,
+            url: document.getElementById('url').value,
+            note: document.getElementById('note').value
+        };
+        const response = await passwordClient.createPassword(data);
+        if (response) {
+            window.location.assign('/passwords');
+        }
+    });
+
+    document.getElementById('savePasswordForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+        const passwordId = document.getElementById('passwordId').value;
+        const data = {
+            name: document.getElementById('title').value,
+            username: document.getElementById('username').value,
+            password: document.getElementById('password').value,
+            url: document.getElementById('url').value,
+            note: document.getElementById('note').value
+        };
+        const response = await passwordClient.savePassword(passwordId, data);
+        if (response) {
+            window.location.assign('/passwords');
+        }
+    });
+
+    document.getElementById('deletePasswordButton').addEventListener('click', async function () {
+        const passwordId = document.getElementById('passwordId').value;
+        const confirmation = confirm('Are you sure you want to delete this password?');
+        if (confirmation) {
+            const response = await passwordClient.deletePassword(passwordId);
+            if (response) {
+                window.location.assign('/passwords');
+            }
+        }
+    });
+
+    document.getElementById('generatePasswordButton').addEventListener('click', function () {
+        const password = passwordClient.generatePassword();
+        document.getElementById('password').value = password;
+    });
+});

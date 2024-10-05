@@ -1,8 +1,3 @@
-@import url('../base.css');
-@import url('../components/search.css');
-@import url('../components/table.css');
-@import url('../components/button.css');
-
 .search-container {
     margin-bottom: 24px;
 }

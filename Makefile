@@ -3,15 +3,19 @@ TESTS_PATH=tests
 
 PHONY: run
 run:
-	uvicorn $(APP_NAME).main:app --host localhost --port 3000 --reload
+	uvicorn $(APP_NAME).main:app --host 0.0.0.0 --port 3000 --reload
 
 PHONY: up
 up:
 	docker-compose up -d --build
 
-PHONY: kill
-kill:
-	TASKKILL /F /IM python.exe
+PHONY: up-prod
+up-prod:
+	docker-compose -f docker-compose.yml-f docker-compose-prod.yml up -d --build
+
+PHONY: restart
+restart:
+	docker-compose restart
 
 PHONY: lint
 lint:
@@ -21,3 +25,7 @@ lint:
 PHONY: format
 format:
 	ruff format $(APP_NAME) $(TESTS_PATH)
+
+PHONY: kill
+kill:
+	TASKKILL /F /IM python.exe

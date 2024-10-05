@@ -1,13 +1,14 @@
+import {backendUrl} from '../clients/config.js';
+
 function savePassword(passwordId) {
     const data = {
-        title: document.getElementById('title').value,
-        username: document.getElementById('username').value,
-        password: document.getElementById('password').value,
-        url: document.getElementById('url').value,
-        note: document.getElementById('note').value
+        'name': document.getElementById('title').value,
+        'username': document.getElementById('username').value,
+        'password': document.getElementById('password').value,
+        'url': document.getElementById('url').value,
+        'note': document.getElementById('note').value
     };
-
-    fetch(`http://localhost:8000/api/v1/passwords/${passwordId}`, {
+    fetch(backendUrl + `/passwords/${passwordId}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json'

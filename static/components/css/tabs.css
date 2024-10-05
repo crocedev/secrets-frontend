@@ -14,10 +14,9 @@
     text-decoration: none;
     color: var(--header-tab-color);
     font-weight: bold;
-    padding: 20px;
     transition: background-color 0.3s ease;
     font-size: 14px;
-    height: 100%;
+    padding: 18px;
 }
 
 .tabs li.current a {
@@ -25,7 +24,7 @@
     position: relative;
 }
 
-.tabs li.current a::before {
+.tabs li.current a::after {
     content: '';
     position: absolute;
     bottom: 0;

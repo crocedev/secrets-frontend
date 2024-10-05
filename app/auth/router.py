@@ -30,11 +30,6 @@ def login(request: Request) -> HTMLResponse:
     return templates.TemplateResponse("auth/login.html", {"request": request})
 
 
-@router.get("/2fa", dependencies=[Depends(redirect_authenticated)])
-def login_2fa(request: Request) -> HTMLResponse:
-    return templates.TemplateResponse("auth/2fa.html", {"request": request})
-
-
 @router.get("/logout")
 async def logout(
     client: Annotated[AuthClient, Depends(get_auth_client)],
@@ -42,5 +37,4 @@ async def logout(
     await client.logout()
     response = RedirectResponse("/login", status.HTTP_307_TEMPORARY_REDIRECT)
     response.delete_cookie("fastapiusersauth")
-
     return response

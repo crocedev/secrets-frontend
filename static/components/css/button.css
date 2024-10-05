@@ -33,3 +33,11 @@
 .danger-btn:hover {
     background-color: var(--danger-button-bg-color-hover);
 }
+
+.safe-btn {
+    background-color: var(--safe-button-bg-color);
+}
+
+.safe-btn:hover {
+    background-color: var(--safe-button-bg-color-hover);
+}

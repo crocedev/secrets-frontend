@@ -1,17 +1,23 @@
-function copyPasswordToClipboard() {
+import {backendUrl} from '../clients/config.js';
+
+function togglePasswordVisibility() {
     const passwordField = document.getElementById('password');
-    navigator.clipboard.writeText(passwordField.value)
-        .catch((error) => {
-            console.error('Failed to copy password: ', error);
-            alert('Failed to copy password. Please try again.');
-        });
+    const toggleButton = document.querySelector('.toggle-visibility');
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text';
+        toggleButton.textContent = 'visibility_off';
+    } else {
+        passwordField.type = 'password';
+        toggleButton.textContent = 'visibility';
+    }
 }
+
 
 function deletePassword(passwordId) {
     const confirmation = confirm('Are you sure you want to delete this password?');
 
     if (confirmation) {
-        fetch(`http://localhost:8000/api/v1/passwords/${passwordId}`, {
+        fetch(backendUrl + `/passwords/${passwordId}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'

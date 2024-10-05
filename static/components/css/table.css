@@ -52,6 +52,6 @@
 }
 
 .password-table .arrow {
-    width: 20px; /* Уменьшение ширины элемента стрелка */
+    width: 20px;
     color: var(--label-secondary-color);
 }

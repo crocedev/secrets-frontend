@@ -3,10 +3,10 @@ import datetime
 from app.schemas import SBase, SPage
 
 
-class SPassword(SBase):
+class SPasswordRead(SBase):
     id: int
     user_id: int
-    title: str
+    name: str
     username: str
     password: str
     url: str = ""
@@ -17,7 +17,7 @@ class SPassword(SBase):
 
 class SPasswordItem(SBase):
     id: int
-    title: str
+    name: str
     username: str
     url: str = ""
 

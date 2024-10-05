@@ -1,2 +1,2 @@
-class AppException(Exception):
+class BackendError(Exception):
     pass

@@ -4,11 +4,11 @@ import aiohttp
 from starlette import status
 
 from app.client import BackendClient
-from app.passwords.schemas import SPassword, SPasswordPage
+from app.passwords.schemas import SPasswordRead, SPasswordPage
 
 
 class PasswordClient(BackendClient):
-    async def get_password(self, item_id: int) -> SPassword:
+    async def get_password(self, item_id: int) -> SPasswordRead:
         async with aiohttp.ClientSession(cookies=self.cookies) as session:
             async with session.get(
                 f"{self.base_url}/passwords/{item_id}",
@@ -18,7 +18,7 @@ class PasswordClient(BackendClient):
                     raise Exception(response_text)
 
                 response_json = await response.json()
-                response_schema = SPassword.model_validate(response_json)
+                response_schema = SPasswordRead.model_validate(response_json)
 
                 return response_schema
 

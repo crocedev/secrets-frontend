@@ -1,14 +1,10 @@
 {% extends "base.html" %}
 
 {% block title %}{{ user.first_name }}{% endblock %}
-{% block styles %}
-    <link rel="stylesheet" href="/static/css/users/view.css">
-{% endblock %}
 
 {% block tabs %}
     <li><a href="/passwords">Passwords</a></li>
-    <li class="current"><a href="/me">Settings</a></li>
-    <li><a href="/logout">Logout</a></li>
+    <li class="current"><a href="/me">Account</a></li>
 {% endblock %}
 
 {% block content %}
@@ -18,7 +14,7 @@
 
     <form id="viewForm" class="form">
         <div class="form-head">
-            <img src="/static/pictures/logo.png" alt="Secrets Logo" class="logo">
+            <img src="/static/assets/logo_1024x1024.png" alt="Secrets Logo" class="logo">
             <h2>My account</h2>
         </div>
         <div class="form-fields">

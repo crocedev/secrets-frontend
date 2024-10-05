@@ -1,9 +1,9 @@
-from app.exceptions import AppException
+from app.exceptions import BackendError
 
 
-class RequiresLoginException(AppException):
+class RequiresLoginException(BackendError):
     pass
 
 
-class AlreadyLoggedInException(AppException):
+class AlreadyLoggedInException(BackendError):
     pass

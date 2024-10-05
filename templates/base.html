@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {% block head %}
-        <title>{% block title %}{% endblock %} - Secrets</title>
+        <title>{% block title %}{% endblock %} - AnySecrets</title>
     {% endblock %}
 
+    <link rel="stylesheet" href="/static/css/base.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="/static/js/base.js"></script>
 
     {% block styles %} {% endblock %}
     {% block scripts %} {% endblock %}
@@ -21,7 +21,7 @@
     {% block header %}
         <div class="logo-container">
             <a href="/">
-                <img src="/static/pictures/logo.png" alt="Secrets Logo" class="logo">
+                <img src="/static/assets/logo_1024x1024.png" alt="AnySecrets Logo" class="logo">
             </a>
         </div>
         <nav class="tabs">
@@ -38,7 +38,7 @@
 
 <footer>
     {% block footer %}
-        <p>&copy; 2024 Secrets. All rights reserved.</p>
+        <p>&copy; 2024 AnySecrets. All rights reserved.</p>
     {% endblock %}
 </footer>
 </body>

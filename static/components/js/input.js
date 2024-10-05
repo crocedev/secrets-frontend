@@ -9,3 +9,12 @@ function togglePasswordVisibility() {
         toggleButton.textContent = 'visibility';
     }
 }
+
+function copyPasswordToClipboard() {
+    const passwordField = document.getElementById('password');
+    navigator.clipboard.writeText(passwordField.value)
+        .catch((error) => {
+            console.error('Failed to copy: ', error);
+            alert('Failed to copy');
+        });
+}

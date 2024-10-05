@@ -8,14 +8,12 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="/static/js/passwords/view.js"></script>
-    <script src="/static/js/passwords/creation.js"></script>
+    <script type="module" src="/static/js/passwords/creation.js"></script>
 {% endblock %}
 
 {% block tabs %}
     <li class="current"><a href="/passwords">Passwords</a></li>
-    <li><a href="/me">Settings</a></li>
-    <li><a href="/logout">Logout</a></li>
+    <li><a href="/me">Account</a></li>
 {% endblock %}
 {% block content %}
 
@@ -25,9 +23,9 @@
     <label for="url"></label>
     <label for="note"></label>
 
-    <form id="editForm" class="form" action="">
+    <form id="createPasswordForm" class="form" action="">
         <div class="form-head">
-            <img src="/static/pictures/logo.png" alt="Secrets Logo" class="logo">
+            <img src="/static/assets/logo_1024x1024.png" alt="Secrets Logo" class="logo">
             <h2>Add a password</h2>
         </div>
         <div class="form-fields">
@@ -45,7 +43,6 @@
                 <span class="copy material-icons md-20" onclick="copyPasswordToClipboard()">content_copy</span>
                 <span class="toggle-visibility material-icons md-20"
                       onclick="togglePasswordVisibility()">visibility</span>
-
             </div>
             <div class="form-field">
                 <input type="text" class="input-field" id="url"
@@ -57,12 +54,11 @@
             </div>
         </div>
         <div class="form-actions">
-            <button class="btn" id="create" type="submit" onclick="return createPassword()">Add</button>
-            <button class="btn icon-btn" id="back" onclick="return generatePassword()"><span
+            <button class="btn safe-btn" id="create" type="submit">Add</button>
+            <button class="btn icon-btn" id="generatePasswordButton"><span
                     class="material-symbols-outlined md-20">vpn_key</span></button>
             <button class="btn icon-btn" id="back" formaction="/passwords"><span
                     class="material-icons md-20">arrow_back</span></button>
-
         </div>
     </form>
 {% endblock %}

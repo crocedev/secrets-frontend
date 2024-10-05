@@ -1,19 +1,18 @@
 {% extends "base.html" %}
 
-{% block title %}{{ password.title }}{% endblock %}
+{% block title %}{{ password.name }}{% endblock %}
 {% block styles %}
     <link rel="stylesheet" href="/static/css/passwords/view.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 {% endblock %}
 
 {% block scripts %}
-    <script src="/static/js/passwords/view.js"></script>
+    <script type="module" src="/static/js/passwords/view.js"></script>
 {% endblock %}
 
 {% block tabs %}
     <li class="current"><a href="/passwords">Passwords</a></li>
-    <li><a href="/me">Settings</a></li>
-    <li><a href="/logout">Logout</a></li>
+    <li><a href="/me">Account</a></li>
 {% endblock %}
 {% block content %}
 
@@ -24,9 +23,9 @@
 
     <form id="viewForm" class="form">
         <div class="form-head">
-            <img src="/static/pictures/logo.png" alt="Secrets Logo" class="logo">
+            <img src="/static/assets/logo_1024x1024.png" alt="Secrets Logo" class="logo">
             <div class="password-title-date">
-                <h2>{{ password.title }}</h2>
+                <h2>{{ password.name }}</h2>
                 <p id="updated_at" title="Updated at {{ password.updated_at }}">{{ password.updated_at_human }}</p>
             </div>
         </div>
@@ -59,8 +58,7 @@
             <button class="btn" formaction="/passwords">Back</button>
             <button class="btn icon-btn" id="edit" formaction='/passwords/{{ password.id }}/edit'><span
                     class="material-icons md-20">edit</span></button>
-            <button class="btn icon-btn danger-btn" id="delete"
-                    onclick="return deletePassword('{{ password.id }}')"><span
+            <button class="btn icon-btn danger-btn" id="deletePasswordButton"><span
                     class="material-icons md-20">delete</span>
             </button>
         </div>

@@ -1,40 +1,41 @@
 {% extends "base.html" %}
 
 {% block title %}Create an account{% endblock %}
-{% block styles %}
-    <link rel="stylesheet" href="/static/css/auth/registration.css">
-{% endblock %}
 
 {% block scripts %}
-    <script src="/static/js/auth/registration.js"></script>
+    <script type="module" src="/static/js/auth/registration.js"></script>
 {% endblock %}
 
 {% block tabs %}
-    <li class="current"><a href="/">Onboarding</a></li>
+    <li class="current"><a href="/static">Onboarding</a></li>
     <li><a href="/login">Login</a></li>
 {% endblock %}
 
 {% block content %}
     <form id="registerForm" class="form" action="">
         <div class="form-head">
-            <img src="/static/pictures/logo.png" alt="Secrets Logo" class="logo">
+            <img src="/static/assets/logo_1024x1024.png" alt="Secrets Logo" class="logo">
             <h2>Create an account</h2>
         </div>
         <div class="form-fields">
             <label>
-                <input type="text" id="firstName" placeholder="First Name" class="input-field" required>
+                <input type="text" id="firstName" placeholder="First Name" class="input-field" autocomplete="name"
+                       autofocus
+                       required>
             </label>
             <label>
-                <input type="email" id="email" placeholder="Email" class="input-field" required>
+                <input type="email" id="email" placeholder="Email" class="input-field" autocomplete="username" required>
             </label>
             <div class="form-field">
                 <label>
-                    <input type="password" id="password" placeholder="Password" class="input-field" required>
+                    <input type="password" id="password" placeholder="Password" class="input-field"
+                           autocomplete="new-password" required>
                 </label>
             </div>
             <div class="form-field">
                 <label>
-                    <input type="password" id="confirmPassword" placeholder="Confirm Password" class="input-field"
+                    <input type="password" id="confirmPassword" placeholder="Confirm Password"
+                           autocomplete="new-password" class="input-field"
                            required>
                 </label>
             </div>

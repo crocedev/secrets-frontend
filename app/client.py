@@ -1,10 +1,11 @@
-import os
 from abc import ABC
 from typing import Any
 
+from app.config import settings
+
 
 class BackendClient(ABC):
-    base_url: str = os.getenv("BACKEND_URL", "http://127.0.0.1:8000/api/v1")
+    base_url: str = settings.backend_url
     cookies: dict[str, Any]
 
     def __init__(self, cookies: dict[str, Any]) -> None:
