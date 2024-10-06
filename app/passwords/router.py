@@ -56,16 +56,8 @@ async def get_passwords(
     q: str = Query(""),
 ) -> HTMLResponse:
     page = await client.get_passwords(q=q)
-
-    if not q:
-        response = templates.TemplateResponse(
-            "passwords/pagination.html",
-            {"request": request, "passwords": page.items},
-        )
-    else:
-        response = templates.TemplateResponse(
-            "passwords/searching_results.html",
-            {"request": request, "passwords": page.items, "query": q},
-        )
-
+    response = templates.TemplateResponse(
+        "passwords/pagination.html",
+        {"request": request, "passwords": page.items, "query": q},
+    )
     return response

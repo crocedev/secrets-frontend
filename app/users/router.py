@@ -11,6 +11,6 @@ router = APIRouter(tags=["Users"], dependencies=[Depends(get_me)])
 @router.get("/me")
 def show_me(request: Request, user: MeDep) -> HTMLResponse:
     return templates.TemplateResponse(
-        "users/view.html",
+        "users/me.html",
         {"request": request, "user": user.model_dump(mode="json")},
     )

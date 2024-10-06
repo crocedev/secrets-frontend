@@ -7,6 +7,10 @@
     <li class="current"><a href="/me">Account</a></li>
 {% endblock %}
 
+{% block scripts %}
+    <script type="module" src="/static/js/auth/logout.js"></script>
+{% endblock %}
+
 {% block content %}
     <label for="first_name"></label>
     <label for="last_name"></label>
@@ -14,7 +18,9 @@
 
     <form id="viewForm" class="form">
         <div class="form-head">
-            <img src="/static/assets/logo_1024x1024.png" alt="Secrets Logo" class="logo">
+            <div class="image-cropper">
+                <img class="circle-pic" src="/static/assets/logo_1024x1024.png" alt="App Logo">
+            </div>
             <h2>My account</h2>
         </div>
         <div class="form-fields">
@@ -35,7 +41,9 @@
             </div>
         </div>
         <div class="form-actions">
-            <button class="btn" id="back" formaction="/passwords">Back</button>
+            <button type="button" class="btn" id="back" onclick="history.back()">Back</button>
+            <button type="button" class="btn icon-btn" id="logout"><span
+                    class="material-icons md-20">logout</span></button>
         </div>
     </form>
 {% endblock %}

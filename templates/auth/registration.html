@@ -7,14 +7,16 @@
 {% endblock %}
 
 {% block tabs %}
-    <li class="current"><a href="/static">Onboarding</a></li>
+    <li class="current"><a href="/">Onboarding</a></li>
     <li><a href="/login">Login</a></li>
 {% endblock %}
 
 {% block content %}
     <form id="registerForm" class="form" action="">
         <div class="form-head">
-            <img src="/static/assets/logo_1024x1024.png" alt="Secrets Logo" class="logo">
+            <div class="image-cropper">
+                <img class="circle-pic" src="/static/assets/logo_1024x1024.png" alt="App Logo">
+            </div>
             <h2>Create an account</h2>
         </div>
         <div class="form-fields">

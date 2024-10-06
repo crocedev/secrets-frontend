@@ -72,6 +72,10 @@ export class ApiClient {
         return this.request(endpoint, params, 'PUT', body, headers, customErrorHandler);
     }
 
+    patch(endpoint, params = {}, body = {}, headers = {}, customErrorHandler = null) {
+        return this.request(endpoint, params, 'PATCH', body, headers, customErrorHandler);
+    }
+
     delete(endpoint, params = {}, headers = {}, customErrorHandler = null) {
         return this.request(endpoint, params, 'DELETE', null, headers, customErrorHandler);
     }

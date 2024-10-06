@@ -1,6 +1,6 @@
 @import url("colors.css");
 
-.password-table {
+.table {
     background-color: var(--table-bg-color);
     color: var(--table-color);
     border-radius: 10px;
@@ -12,8 +12,8 @@
     border-collapse: collapse;
 }
 
-.password-table th,
-.password-table td {
+.table th,
+.table td {
     padding: 12px 16px;
     text-align: left;
     white-space: nowrap;
@@ -22,36 +22,36 @@
     font-size: 14px;
 }
 
-.password-table th {
+.table th {
     color: var(--table-header-color);
     background-color: var(--table-header-bg-color);
     font-size: 14px;
 }
 
 /* Костыль для закругления хедера */
-.password-table th:first-child {
+.table th:first-child {
     border-top-left-radius: 10px;
 }
 
-.password-table th:last-child {
+.table th:last-child {
     border-top-right-radius: 10px;
 }
 
-.password-table tr:hover {
+.table tr:hover {
     background-color: var(--table-row-hover-bg-color);
     cursor: pointer;
 }
 
-.password-table a {
+.table a {
     color: var(--table-link-color);
     text-decoration: none;
 }
 
-.password-table a:hover {
+.table a:hover {
     text-decoration: underline;
 }
 
-.password-table .arrow {
+.table .arrow {
     width: 20px;
     color: var(--label-secondary-color);
 }

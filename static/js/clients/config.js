@@ -1,1 +1,1 @@
-export const backendUrl = 'https://api.anysecrets.ru/v1';
+export const backendUrl = 'https://anysecrets.ru/api/v1';

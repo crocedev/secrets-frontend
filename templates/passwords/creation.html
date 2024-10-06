@@ -3,7 +3,6 @@
 {% block title %}Add password{% endblock %}
 {% block styles %}
     <link rel="stylesheet" href="/static/css/passwords/view.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
 {% endblock %}
 
@@ -25,8 +24,10 @@
 
     <form id="createPasswordForm" class="form" action="">
         <div class="form-head">
-            <img src="/static/assets/logo_1024x1024.png" alt="Secrets Logo" class="logo">
-            <h2>Add a password</h2>
+            <div class="image-cropper">
+                <img class="circle-pic" id="password-pic" src="/static/assets/key_1024x1024.png" alt="Password picture">
+            </div>
+            <h2>Create password</h2>
         </div>
         <div class="form-fields">
             <div class="form-field">
@@ -38,11 +39,10 @@
                        placeholder="Username" required>
             </div>
             <div class="form-field">
-                <input type="password" class="input-field" id="password"
+                <input type="password" class="input-field password" id="password"
                        placeholder="Password" required>
-                <span class="copy material-icons md-20" onclick="copyPasswordToClipboard()">content_copy</span>
-                <span class="toggle-visibility material-icons md-20"
-                      onclick="togglePasswordVisibility()">visibility</span>
+                <span class="copy material-icons md-20">content_copy</span>
+                <span class="toggle-visibility material-icons md-20">visibility</span>
             </div>
             <div class="form-field">
                 <input type="text" class="input-field" id="url"
@@ -54,10 +54,10 @@
             </div>
         </div>
         <div class="form-actions">
-            <button class="btn safe-btn" id="create" type="submit">Add</button>
+            <button class="btn" id="create" type="submit">Create</button>
             <button class="btn icon-btn" id="generatePasswordButton"><span
                     class="material-symbols-outlined md-20">vpn_key</span></button>
-            <button class="btn icon-btn" id="back" formaction="/passwords"><span
+            <button class="btn icon-btn" id="back" onclick="history.back()"><span
                     class="material-icons md-20">arrow_back</span></button>
         </div>
     </form>

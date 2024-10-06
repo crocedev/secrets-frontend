@@ -5,8 +5,8 @@ export class PasswordClient extends ApiClient {
         return this.post('/passwords', {}, data, {}, this.handleCreatePasswordErrors);
     }
 
-    async savePassword(passwordId, data) {
-        return this.put(`/passwords/${passwordId}`, {}, data, {}, this.handleSavePasswordErrors);
+    async editPassword(passwordId, data) {
+        return this.patch(`/passwords/${passwordId}`, {}, data, {}, this.handleSavePasswordErrors);
     }
 
     async deletePassword(passwordId) {

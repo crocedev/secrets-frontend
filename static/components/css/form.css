@@ -10,8 +10,13 @@
     gap: 8px;
 }
 
-.form-head {
-
+.form .form-head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 8px;
 }
 
 .form .form-fields {
@@ -28,10 +33,4 @@
     box-sizing: border-box;
     gap: 8px;
     justify-content: space-between;
-}
-
-.form .form-head img {
-    width: 120px;
-    height: auto;
-    margin-bottom: 0;
 }

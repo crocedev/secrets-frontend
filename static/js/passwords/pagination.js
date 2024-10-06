@@ -13,4 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
             searchPasswords();
         }
     });
+    document.getElementById('searchButton').addEventListener("click", function () {
+        searchPasswords();
+    });
 });

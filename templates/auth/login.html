@@ -7,16 +7,17 @@
 {% endblock %}
 
 {% block tabs %}
-    <li><a href="/static">Onboarding</a></li>
-    <li class="current"><a href="/login">"Login"
-    ::after
+    <li><a href="/">Onboarding</a></li>
+    <li class="current"><a href="/login">Login
     </a></li>
 {% endblock %}
 
 {% block content %}
     <form id="loginForm" class="form">
         <div class="form-head">
-            <img src="/static/assets/logo_1024x1024.png" alt="Secrets Logo" class="logo">
+            <div class="image-cropper">
+                <img class="circle-pic" src="/static/assets/logo_1024x1024.png" alt="App Logo">
+            </div>
             <h2>Login to account</h2>
         </div>
         <div class="form-fields">

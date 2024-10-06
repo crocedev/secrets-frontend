@@ -3,7 +3,6 @@
 {% block title %}Passwords{% endblock %}
 {% block styles %}
     <link rel="stylesheet" href="/static/css/passwords/pagination.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 {% endblock %}
 
 {% block scripts %}
@@ -16,17 +15,21 @@
 {% endblock %}
 
 {% block content %}
-    <h1>Create and manage passwords</h1>
+    <h1>Manage and share passwords</h1>
     <p><b>Secure your passwords</b> with an AES encryption and access them from <b>anywhere</b> in the world.</p>
     <label for="search"></label>
     <div class="search-container">
-        <input class="input-field" type="text" id="search" placeholder="Search passwords...">
-        <button id="btn_search" class="btn icon-btn" onclick="searchPasswords()"><i
+        {% if query %}
+            <input class="input-field" type="text" id="search" value="{{ query }}" placeholder="Search passwords...">
+        {% else %}
+            <input class="input-field" type="text" id="search" placeholder="Search passwords..." autofocus>
+        {% endif %}
+        <button id="searchButton" class="btn icon-btn" onclick="searchPasswords()"><i
                 class="material-icons">search</i></button>
-        <button id="btn_add" class="btn icon-btn" onclick="window.location.assign('/passwords/add')"><i
+        <button id="addButton" class="btn icon-btn" onclick="window.location.assign('/passwords/add')"><i
                 class="material-icons">add</i></button>
     </div>
-    <table class="password-table">
+    <table class="table">
         {% if passwords %}
             <caption><h2>Recently Updated</h2></caption>
             <thead>
@@ -37,10 +40,16 @@
                 <th></th>
             </tr>
             </thead>
+        {% else %}
+            {% if query %}
+                <h2 id="no_results">No results found 😔</h2>
+            {% else %}
+                <h2 id="no_results">Create your first password! Click on the + button ✨</h2>
+            {% endif %}
         {% endif %}
         <tbody>
         {% for password in passwords %}
-            <tr onclick="window.location='/passwords/{{ password.id }}'">
+            <tr onclick="window.location.assign('/passwords/{{ password.id }}')">
                 <td><b><a>{{ password.name }}</a></b></td>
                 <td><b>{{ password.username }}</b></td>
                 <td><a target="_blank" rel="noopener noreferrer" href="{{ password.url }}">{{ password.url }}</a></td>

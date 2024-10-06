@@ -3,6 +3,14 @@ import {ApiClient} from './base.js';
 export class AuthClient extends ApiClient {
 
     handleLoginErrors(status, data) {
+        switch (status) {
+            case 400:
+                alert('Bad credentials or the user is inactive.');
+                break;
+            case 401:
+                alert('Invalid token.');
+                break;
+        }
         if (status === 400) {
             alert('Bad credentials or the user is inactive.');
         } else {
@@ -35,5 +43,9 @@ export class AuthClient extends ApiClient {
             password: password,
             first_name: firstName
         }, {}, this.handleRegisterErrors);
+    }
+
+    async logout() {
+        return this.post('/auth/logout');
     }
 }
