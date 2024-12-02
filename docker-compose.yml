@@ -1,5 +1,5 @@
 services:
-  fastapi:
+  front:
     build:
       context: .
       dockerfile: docker/fastapi.Dockerfile
@@ -7,11 +7,15 @@ services:
     env_file:
       - .env
     ports:
-      - "3001:8000"
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - "3014:3000"
     restart: unless-stopped
     volumes:
       - "./app:/opt/app/app"
       - "./static:/opt/app/app/static"
       - "./templates:/opt/app/app/templates"
+    networks:
+      - secrets_net
+networks:
+  secrets_net:
+    name: secrets_net
+    external: true

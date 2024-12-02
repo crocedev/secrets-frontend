@@ -2,7 +2,7 @@ import {authClient} from './dependencies.js';
 
 async function onRegisterFormSubmit(event) {
     event.preventDefault();
-    const firstName = document.getElementById('firstName').value;
+    const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const confirmPassword = document.getElementById('confirmPassword').value;
@@ -10,7 +10,7 @@ async function onRegisterFormSubmit(event) {
         alert('Passwords do not match.');
         return;
     }
-    const response = await authClient.register(firstName, email, password);
+    const response = await authClient.register(name, email, password);
     if (response) {
         alert('You are successfully registered. Please log in.');
         window.location.assign('/login');

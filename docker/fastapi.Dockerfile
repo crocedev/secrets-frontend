@@ -31,13 +31,13 @@ ENV PATH="$POETRY_HOME/bin:$PATH"
 WORKDIR $APP_PATH
 COPY ./poetry.lock ./pyproject.toml ./
 
-RUN poetry install --no-dev
+RUN poetry install --only main
 RUN poetry export --without-hashes --without dev -f requirements.txt -o requirements.txt
 
 #
 # Stage: dev
 #
-FROM base as dev
+FROM base AS dev
 ARG APP_DIR
 ARG APP_PATH
 
@@ -50,12 +50,12 @@ COPY ./static ./static
 COPY ./docker/entrypoint-dev.sh /entrypoint-dev.sh
 RUN chmod +x /entrypoint-dev.sh
 ENTRYPOINT ["/entrypoint-dev.sh"]
-CMD ["uvicorn \"$APP_DIR:app\" --host 0.0.0.0 --port 8000 --reload --reload-dir $APP_DIR"]
+CMD ["uvicorn \"$APP_DIR:app\" --host 0.0.0.0 --port 3000 --reload"]
 
 #
 # Stage: prod
 #
-FROM python:$PYTHON_VERSION as prod
+FROM python:$PYTHON_VERSION AS prod
 ARG APP_DIR
 ARG APP_PATH
 
@@ -80,4 +80,4 @@ COPY ./static ./static
 COPY ./docker/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["gunicorn -w 4 -k uvicorn.workers.UvicornWorker \"$APP_DIR:app\" -b 0.0.0.0:8000"]
+CMD ["gunicorn -w 1 -k uvicorn.workers.UvicornWorker \"$APP_DIR:app\" -b 0.0.0.0:3000"]

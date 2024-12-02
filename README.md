@@ -2,44 +2,48 @@
 
 ![GitHub](https://img.shields.io/github/license/everysoftware/secrets-frontend)
 
-Разворачиваемый менеджер паролей с AES шифрованием.
+Simple self-hosted password manager.
+
+![Main Page](assets/main_page.png)
 
 ---
 
-**Backend:** https://github.com/everysoftware/secrets
+**Backend:** https://github.com/everysoftware/secrets-backend
 
 **Frontend:** https://github.com/everysoftware/secrets-frontend
 
 ---
 
-![Main Page](assets/main_page.png)
+## Features
 
-## Фичи
+* Create and manage your passwords from anywhere in the world
+* Search passwords easily by name or URL
+* Protect your passwords with AES encryption
 
-* Создавайте и управляете паролями из любой точки мира
-* Легко находите нужный пароль с помощью поиска
-* Защитите пароли надежным AES-шифрованием
-
-## Стек технологий
+## Stack
 
 HTML • CSS • JS • Jinja2 • Python 3.12 • FastAPI
 
-## Сборка
+## Installation
 
-1. Клонируйте репозиторий:
+1. Clone the repository:
 
     ```bash
     git clone https://github.com/everysoftware/secrets-frontend
     ```
-2. Создайте `.env` файл - используйте `.env.example` как референс.
+2. Create `.env` file based on `.env.example`:
 
-3. Запустите приложение:
+    ```bash
+    cp .env.example .env
+    ```
+
+3. Run the application:
 
    ```bash
       make up
    ```
 
-## Скриншоты
+## Screenshots
 
 ![Get Started](assets/get_started.png)
 ![Registration](assets/registration.png)
@@ -47,5 +51,3 @@ HTML • CSS • JS • Jinja2 • Python 3.12 • FastAPI
 ![Main Page](assets/main_page.png)
 ![Password](assets/password.png)
 ![Profile](assets/profile.png)
-
-**Made with ❤️ by Ivan Stasevich**

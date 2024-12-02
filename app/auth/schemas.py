@@ -3,21 +3,10 @@ import datetime
 from app.schemas import SBase
 
 
-class SEnableTwoFactor(SBase):
-    otp: str
-
-
-class SQRCode(SBase):
-    qr_code: str
-
-
 class SUser(SBase):
     id: int
     email: str
-    first_name: str
-    last_name: str | None = None
-    two_factor: bool = False
-    otp_secret: str | None = None
+    name: str
     is_active: bool = True
     is_superuser: bool = False
     is_verified: bool = False

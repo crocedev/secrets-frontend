@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}{{ user.first_name }}{% endblock %}
+{% block title %}{{ user.name }}{% endblock %}
 
 {% block tabs %}
     <li><a href="/passwords">Passwords</a></li>
@@ -12,8 +12,7 @@
 {% endblock %}
 
 {% block content %}
-    <label for="first_name"></label>
-    <label for="last_name"></label>
+    <label for="name"></label>
     <label for="email"></label>
 
     <form id="viewForm" class="form">
@@ -25,14 +24,9 @@
         </div>
         <div class="form-fields">
             <div class="form-field">
-                <input type="text" class="input-field" id="first_name"
-                       value="{{ user.first_name }}"
-                       placeholder="First Name" readonly>
-            </div>
-            <div class="form-field">
-                <input type="text" class="input-field" id="last_name"
-                       value="{{ user.last_name if user.last_name else '' }}"
-                       placeholder="Last Name" readonly>
+                <input type="text" class="input-field" id="name"
+                       value="{{ user.name }}"
+                       placeholder="Name" readonly>
             </div>
             <div class="form-field">
                 <input type="email" class="input-field" id="email"

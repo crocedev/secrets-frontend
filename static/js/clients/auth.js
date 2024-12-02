@@ -37,11 +37,11 @@ export class AuthClient extends ApiClient {
         }
     }
 
-    async register(firstName, email, password) {
+    async register(name, email, password) {
         return this.post('/auth/register', {}, {
             email: email,
             password: password,
-            first_name: firstName
+            name: name
         }, {}, this.handleRegisterErrors);
     }
 
