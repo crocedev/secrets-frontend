@@ -4,8 +4,8 @@ from starlette.responses import RedirectResponse, Response
 from starlette.staticfiles import StaticFiles
 
 from app.auth.exceptions import (
-    RequiresLoginException,
     AlreadyLoggedInException,
+    RequiresLoginException,
 )
 from app.auth.router import router as auth_router
 from app.passwords.router import router as passwords_router
@@ -19,16 +19,12 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 @app.exception_handler(RequiresLoginException)
-async def requires_login_handler(
-    _request: Request, _exc: RequiresLoginException
-) -> Response:
+async def requires_login_handler(_request: Request, _exc: RequiresLoginException) -> Response:
     return RedirectResponse(url="/login")
 
 
 @app.exception_handler(AlreadyLoggedInException)
-async def already_logged_in_handler(
-    _request: Request, _exc: AlreadyLoggedInException
-) -> Response:
+async def already_logged_in_handler(_request: Request, _exc: AlreadyLoggedInException) -> Response:
     return RedirectResponse(url="/passwords")
 
 

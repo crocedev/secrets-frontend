@@ -1,11 +1,11 @@
 from typing import Annotated
 
-from fastapi import APIRouter, Request, Depends
+from fastapi import APIRouter, Depends, Request
 from starlette import status
-from starlette.responses import HTMLResponse, Response, RedirectResponse
+from starlette.responses import HTMLResponse, RedirectResponse, Response
 
 from app.auth.client import AuthClient
-from app.auth.dependencies import redirect_authenticated, get_auth_client
+from app.auth.dependencies import get_auth_client, redirect_authenticated
 from app.templating import templates
 
 router = APIRouter(tags=["Auth"])
@@ -13,16 +13,12 @@ router = APIRouter(tags=["Auth"])
 
 @router.get("/", dependencies=[Depends(redirect_authenticated)])
 def onboarding(request: Request) -> HTMLResponse:
-    return templates.TemplateResponse(
-        "auth/onboarding.html", {"request": request}
-    )
+    return templates.TemplateResponse("auth/onboarding.html", {"request": request})
 
 
 @router.get("/register", dependencies=[Depends(redirect_authenticated)])
 def register(request: Request) -> HTMLResponse:
-    return templates.TemplateResponse(
-        "auth/registration.html", {"request": request}
-    )
+    return templates.TemplateResponse("auth/registration.html", {"request": request})
 
 
 @router.get("/login", dependencies=[Depends(redirect_authenticated)])

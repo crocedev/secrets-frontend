@@ -4,7 +4,7 @@ import aiohttp
 from starlette import status
 
 from app.client import BackendClient
-from app.passwords.schemas import SPasswordRead, SPasswordPage
+from app.passwords.schemas import SPasswordPage, SPasswordRead
 
 
 class PasswordClient(BackendClient):
@@ -22,9 +22,7 @@ class PasswordClient(BackendClient):
 
                 return response_schema
 
-    async def get_passwords(
-        self, q: str = "", limit: int = 100
-    ) -> SPasswordPage:
+    async def get_passwords(self, q: str = "", limit: int = 100) -> SPasswordPage:
         params = urlencode({"query": q, "limit": limit})
         url = f"{self.base_url}/passwords?{params}"
         async with aiohttp.ClientSession(cookies=self.cookies) as session:
