@@ -1,10 +1,11 @@
 import datetime
+from uuid import UUID
 
 from app.schemas import SBase, SPage
 
 
 class SPasswordRead(SBase):
-    id: int
+    id: UUID
     user_id: int
     name: str
     username: str
@@ -16,7 +17,7 @@ class SPasswordRead(SBase):
 
 
 class SPasswordItem(SBase):
-    id: int
+    id: UUID
     name: str
     username: str
     url: str = ""

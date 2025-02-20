@@ -1,5 +1,6 @@
 import datetime
 from typing import Annotated
+from uuid import UUID
 
 import humanize
 from fastapi import APIRouter, Depends, Path, Query
@@ -23,7 +24,7 @@ def add_password(request: Request) -> HTMLResponse:
 async def get_password(
     request: Request,
     client: Annotated[PasswordClient, Depends(get_password_client)],
-    item_id: int = Path(ge=1),
+    item_id: UUID = Path(),
 ) -> HTMLResponse:
     password = await client.get_password(item_id)
     info = password.model_dump(mode="json")
@@ -35,7 +36,7 @@ async def get_password(
 async def edit_password(
     request: Request,
     client: Annotated[PasswordClient, Depends(get_password_client)],
-    item_id: int = Path(ge=1),
+    item_id: UUID = Path(),
 ) -> HTMLResponse:
     password = await client.get_password(item_id)
     return templates.TemplateResponse("passwords/editing.html", {"request": request, "password": password})
